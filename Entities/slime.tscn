@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://fmhl5oci4hie"]
+
+[ext_resource type="Script" path="res://Entities/Scripts/slime.gd" id="1_4syqs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5a4wg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdt0m"]
+albedo_color = Color(1, 0.772549, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u0iqf"]
+material = SubResource("StandardMaterial3D_qdt0m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r5mo"]
+transparency = 1
+albedo_color = Color(0.988235, 0.894118, 0.960784, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0yv1"]
+material = SubResource("StandardMaterial3D_8r5mo")
+
+[node name="Slime" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_4syqs")
+max_speed = 1.5
+accel = 10.0
+friction = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5a4wg")
+
+[node name="CubeInner" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, 0, 0, 0)
+mesh = SubResource("BoxMesh_u0iqf")
+skeleton = NodePath("../../..")
+
+[node name="CubeOuter" type="MeshInstance3D" parent="CubeInner"]
+transform = Transform3D(1.84028, 0, 0, 0, 1.84028, 0, 0, 0, 1.84028, 0, 0, 0)
+mesh = SubResource("BoxMesh_d0yv1")
