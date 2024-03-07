@@ -5,21 +5,25 @@ albedo_color = Color(0.203922, 0.203922, 0.203922, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_6x16w"]
 material = SubResource("StandardMaterial3D_rnxtx")
-size = Vector2(10, 5)
+size = Vector2(20, 15)
 
 [node name="TestLevel" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.995496, 0, -0.0948033, 0, 1, 0, 0.0948033, 0, 0.995496, 0, 0, 0)
 mesh = SubResource("PlaneMesh_6x16w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.911346, 0, -0.411642, 0.373344, 0.42121, 0.826557, 0.173388, -0.906963, 0.383868, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45438, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.58064, 0)
+light_energy = 2.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75159, 1.45438, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75159, 3.58064, 0)
+light_energy = 2.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36045, 1.45438, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36045, 3.58064, 0)
+light_energy = 2.0
