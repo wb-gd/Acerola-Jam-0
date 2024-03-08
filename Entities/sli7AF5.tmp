@@ -28,11 +28,11 @@ script = ExtResource("1_4syqs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5a4wg")
 
-[node name="CubeInner" type="MeshInstance3D" parent="."]
+[node name="CubeInner" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, 0, 0, 0)
 mesh = SubResource("BoxMesh_u0iqf")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
 
-[node name="CubeOuter" type="MeshInstance3D" parent="CubeInner"]
+[node name="CubeOuter" type="MeshInstance3D" parent="CollisionShape3D/CubeInner"]
 transform = Transform3D(1.84028, 0, 0, 0, 1.84028, 0, 0, 0, 1.84028, 0, 0, 0)
 mesh = SubResource("BoxMesh_d0yv1")

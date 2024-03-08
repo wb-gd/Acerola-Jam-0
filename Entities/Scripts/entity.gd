@@ -32,11 +32,13 @@ func set__input_direction(_value: Vector2) -> void:
 
 # Basic movement, to be overridden by subclass if needed
 func move(delta):
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var camera: Camera3D = get_viewport().get_camera_3d()
+	var direction: Vector3 = (camera.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x += direction.x * accel * delta
 		velocity.z += direction.z * accel * delta
 		velocity = velocity.limit_length(max_speed)
+		rotation.y = -Vector2(velocity.x, velocity.z).angle() 
 	else:
 		if velocity.length() > friction * delta:
 			velocity.x -= velocity.normalized().x * friction * delta
